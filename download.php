@@ -3,7 +3,7 @@ include_once('includes/config.php');
 include 'includes/func.php';
 include 'includes/key.php';
 $url = file_get_contents('https://www.googleapis.com/youtube/v3/videos?key='.$key.'&part=snippet,contentDetails,statistics,topicDetails&id='.$_GET['id'].'');
-$download = file_get_contents('http://api.tubeloft.in/youtube/1.0.0/download.php?id='.$_GET['id'].'&site='.$config['site'].'');
+$download = file_get_contents('http://masticity.info/api/getvideo.php?videoid='.$_REQUEST['id'].'&type=Download');
 $json = json_decode($url);
 if($json)
 {
