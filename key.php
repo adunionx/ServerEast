@@ -1,5 +1,5 @@
 <?php
-$a = array('AIzaSyCsFyLiUQHr9uq5H60IcV_41I-zgDtSX94','AIzaSyCsFyLiUQHr9uq5H60IcV_41I-zgDtSX94','AIzaSyCsFyLiUQHr9uq5H60IcV_41I-zgDtSX94','AIzaSyCsFyLiUQHr9uq5H60IcV_41I-zgDtSX94','AIzaSyCsFyLiUQHr9uq5H60IcV_41I-zgDtSX94','AIzaSyCsFyLiUQHr9uq5H60IcV_41I-zgDtSX94','AIzaSyCsFyLiUQHr9uq5H60IcV_41I-zgDtSX94','AIzaSyCsFyLiUQHr9uq5H60IcV_41I-zgDtSX94','AIzaSyCsFyLiUQHr9uq5H60IcV_41I-zgDtSX94','AIzaSyCsFyLiUQHr9uq5H60IcV_41I-zgDtSX94');
+$a = array('AIzaSyCK-lPP3Lf6MlTYin7UEOFIkhOwmyio-fA');
 $b = count($a)-1;
 $key = $a[rand(0,$b)];
 ?>
