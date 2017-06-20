@@ -1,0 +1,110 @@
+<?php
+include_once('includes/config.php');
+include 'includes/func.php';
+include 'includes/key.php';
+$url = file_get_contents('https://www.googleapis.com/youtube/v3/videos?key='.$key.'&part=snippet,contentDetails,statistics,topicDetails&id='.$_GET['id'].'');
+$download = file_get_contents('http://api.tubeloft.in/youtube/1.0.0/download.php?id='.$_GET['id'].'&site='.$config['site'].'');
+$json = json_decode($url);
+if($json)
+{
+foreach($json->items as $data)
+{
+$name = $data->snippet->title;
+$channelTitle = $data->snippet->channelTitle;
+$channelId = $data->snippet->channelId;
+$duration = $data->contentDetails->duration;
+$defination = strtoupper($data->contentDetails->definition);
+$description = $data->snippet->description;
+$viewCount = number_format($data->statistics->viewCount);
+$likeCount = number_format($data->statistics->likeCount);
+$dislikeCount = number_format($data->statistics->dislikeCount);
+$publishedAt = csdate($data->snippet->publishedAt);
+{
+$title = ''.$name.'';
+}
+$ogtitle = 'Download '.$name.' - '.$site.'';
+$ogdescription = ''.substr($description,0,180)."...".'';
+$ogimage = 'https://ytimg.googleusercontent.com/vi/4KTodGpSpCA/mqdefault.jpg';
+include 'includes/head.php';
+echo '<div class="col-md-8" id="'.$_GET['id'].'">';
+echo '<div id="media-player-box_wrapper">';
+echo '<div class="clearfix"></div>';
+echo '<script src="http://'.$_SERVER['HTTP_HOST'].'/static/player/jwplayer.js"></script>';
+echo '<div id="lightsVideo"></div>';
+echo '<script> jwplayer.key = "QIg7RI3Eof9o0u11qyPX8aI93woSX/w+h6+6pw=="; jwplayer("lightsVideo").setup({ flashplayer: "http://'.$_SERVER['HTTP_HOST'].'/static/player/jwplayer.flash.swf", aboutlink:"http://maxclip.net", abouttext:"MaxClip.Net - Xem video miễn phí", width: "100%", volume: "80", file: "https://www.youtube.com/watch?v='.$_GET['id'].'", aspectratio: "16:9", autostart: "false", controlbar: "over", wmode: "transparent", skin: "http://'.$_SERVER['HTTP_HOST'].'/static/player/skins/aBlue-Flat-AIR-Skin-for-JW6.xml", }); </script>';
+echo '<div class="clearfix"></div>';
+echo '</div>';
+echo '<div class="hidden" id="a" itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemref="b">';
+echo '<a href="http://'.$_SERVER['HTTP_HOST'].'" itemprop="url"><span itemprop="title">'.$site.'</span></a> >';
+echo '</div>';
+echo '<div class="hidden" id="b" itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemprop="child" itemref="c">';
+echo '<a href="http://'.$_SERVER['HTTP_HOST'].'/channel/'.$channelId.'.html" itemprop="url"><span itemprop="title">'.$channelTitle.'</span></a> >';
+echo '</div>';
+echo '<div class="hidden" id="c" itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemprop="child">';
+echo '<a href="http://'.$_SERVER['HTTP_HOST'].'/video/view/'.$_GET['id'].'/'.name($name).'.html" itemprop="url"><span itemprop="title">'.$name.'</span></a> >';
+echo '</div>';
+echo '<div class="list-group-item video_margin" itemscope itemtype="http://schema.org/VideoObject">';
+echo '<link itemprop="url" href="http://'.$_SERVER['HTTP_HOST'].'/video/view/'.$_GET['id'].'/'.name($name).'.html"/>';
+echo '<link itemprop="thumbnailUrl" href="https://ytimg.googleusercontent.com/vi/'.$_GET['id'].'/hqdefault.jpg"/>';
+echo '<meta itemprop="thumbnail" content="https://ytimg.googleusercontent.com/vi/'.$_GET['id'].'/default.jpg"/>';
+echo '<meta itemprop="duration" content="'.$duration.'" />';
+echo '<meta itemprop="videoQuality" content="'.$defination.'"/>';
+echo '<meta itemprop="description" content="'.substr($description,0,260).'"/>';
+echo '<span class="hidden" itemprop="thumbnail" itemscope itemtype="http://schema.org/ImageObject">';
+echo '<link itemprop="url" href="https://ytimg.googleusercontent.com/vi/'.$_GET['id'].'/hqdefault.jpg"/>';
+echo '<meta itemprop="width" content="1280"/>';
+echo '<meta itemprop="height" content="720"/>';
+echo '</span>';
+echo '<meta itemprop="interactionCount" content="UserPageVisits:'.$viewCount.'"/>';
+echo '<!--<div class="hidden" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"> <meta itemprop="ratingValue" content="" />';
+echo '<meta itemprop="reviewCount" content=""/>';
+echo '</div>-->';
+echo '<div class="clearfix"></div>';
+echo '<h1 class="title">'.$name.'</h1>';
+echo '</div>';
+echo '<div class="info">';
+echo '<div class="left-info">';
+echo '<i class="fa fa-calendar"></i> '.$publishedAt.'';
+echo '<br/>';
+echo '<i class="fa fa-user"></i> <a href="http://'.$_SERVER['HTTP_HOST'].'/channel/'.$channelId.'.html" class="tl" title="'.$channelTitle.'">'.$channelTitle.'</a>';
+echo '</div>';
+echo '<div class="right-info">';
+echo '<span class="viewCount text-success"><i class="fa fa-eye"></i> <b>'.$viewCount.'</b> views</span>';
+echo '<br/>';
+echo '<span class="likeCount text-primary"><i class="fa fa-thumbs-up"></i> <b>'.$likeCount.'</b></span> <span class="dislikeCount text-danger"><i class="fa fa-thumbs-down" aria-hidden="true"></i> <b>'.$dislikeCount.'</b></span>';
+echo '</div>';
+echo '</div>';
+echo '<div class="clearfix"></div>';
+echo '<div class="list-group-item-contents bdr">';
+echo '<div class="social-likes social-likes_lights">';
+echo '<div class="facebook" title="Share link on Facebook">Facebook</div>';
+echo '<div class="twitter" title="Share link on Twitter">Twitter</div>';
+echo '<div class="plusone" title="Share link on Google+">Google+</div>';
+echo '</div>';
+echo '<div class="col-md-6 hidden-xs">';
+echo '<div class="input-group input-group-sm">';
+echo '<span class="input-group-addon" id="sizing-addon3"><i class="fa fa-link"></i></span>';
+echo '<input type="text" onClick="this.select()" class="form-control" value="http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'].'" aria-describedby="sizing-addon3">';
+echo '</div>';
+echo '</div>';
+echo '</div>';
+echo '<div class="clearfix"></div>';
+echo '<div class="list-group">';
+echo '<div class="list-group-item active text-center">Available Download Formats</div>';
+echo $download;
+echo '</div>';
+echo '<div class="clearfix"></div>';
+echo '<div class="panel panel-default">';
+echo '<div class="widget-title"><i class="fa fa-comments"></i> Comments</div>';
+echo '<div class="panel-body">';
+echo '<div class="fb-comments" data-href="http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'].'" data-width="100%" data-numposts="10" data-colorscheme="light" data-version="v2.3"></div>';
+echo '</div>';
+echo '</div>';
+echo '</div>';
+}
+}
+echo '<aside class="col-sm-12 col-lg-4 col-md-4" id="right-sidebar">';
+include 'related.php';
+echo '</aside>';
+include 'includes/foot.php';
+?>
