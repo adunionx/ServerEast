@@ -1,6 +1,7 @@
 <?php
-$a = array('AIzaSyCK-lPP3Lf6MlTYin7UEOFIkhOwmyio-fA','AIzaSyCK-lPP3Lf6MlTYin7UEOFIkhOwmyio-fA','AIzaSyCK-lPP3Lf6MlTYin7UEOFIkhOwmyio-fA','AIzaSyCK-lPP3Lf6MlTYin7UEOFIkhOwmyio-fA','AIzaSyCK-lPP3Lf6MlTYin7UEOFIkhOwmyio-fA','AIzaSyCK-lPP3Lf6MlTYin7UEOFIkhOwmyio-fA','AIzaSyCK-lPP3Lf6MlTYin7UEOFIkhOwmyio-fA','AIzaSyCK-lPP3Lf6MlTYin7UEOFIkhOwmyio-fA','AIzaSyCK-lPP3Lf6MlTYin7UEOFIkhOwmyio-fA','AIzaSyCK-lPP3Lf6MlTYin7UEOFIkhOwmyio-fA');
+$a = array('AIzaSyAjNGcXz_p496XwpWMmHBSAa2o8Uu_aRM0','AIzaSyAjNGcXz_p496XwpWMmHBSAa2o8Uu_aRM0','AIzaSyAjNGcXz_p496XwpWMmHBSAa2o8Uu_aRM0','AIzaSyAjNGcXz_p496XwpWMmHBSAa2o8Uu_aRM0','AIzaSyAjNGcXz_p496XwpWMmHBSAa2o8Uu_aRM0','AIzaSyAjNGcXz_p496XwpWMmHBSAa2o8Uu_aRM0','AIzaSyAjNGcXz_p496XwpWMmHBSAa2o8Uu_aRM0','AIzaSyAjNGcXz_p496XwpWMmHBSAa2o8Uu_aRM0','AIzaSyAjNGcXz_p496XwpWMmHBSAa2o8Uu_aRM0','AIzaSyAjNGcXz_p496XwpWMmHBSAa2o8Uu_aRM0');
 $b = count($a)-1;
 $key = $a[rand(0,$b)];
 ?>
+
 
