@@ -64,8 +64,10 @@
         <h4>Hosting</h4>
         <ul class="nav">
           <li><a href="{$WEB_ROOT}/website-hosting.php"><i class="fa fa-angle-double-right"></i>Shared Hosting</a></li>
-
-          <li><a href="{$WEB_ROOT}/reseller-hosting.php"><i class="fa fa-angle-double-right"></i>Reseller Hosting</a></li>
+         <li><a href="{$WEB_ROOT}/reseller-hosting.php"><i class="fa fa-angle-double-right"></i>Reseller Hosting</a></li>
+          <li><a href="{$WEB_ROOT}/cart.php?gid=33"><i class="fa fa-angle-double-right"></i>Live Streaming</a></li>
+         <li><a href="{$WEB_ROOT}/cart.php?gid=31"><i class="fa fa-angle-double-right"></i>Virtual Private Server</a></li>
+        <li><a href="{$WEB_ROOT}/cart.php?gid=16"><i class="fa fa-angle-double-right"></i>Flash Hosting Sell</a></li>
     
       
         </ul>
@@ -76,7 +78,7 @@
         <h4>Services</h4>
         <ul class="nav">
           <li><a href="{$WEB_ROOT}/website-design.php"><i class="fa fa-angle-double-right"></i>Web Design</a></li>
-        
+           <li><a href="{$WEB_ROOT}/cart.php?gid=34"><i class="fa fa-angle-double-right"></i>SSL Certificates</a></li>
 
           <li><a href="{$WEB_ROOT}/service-price-list.php"><i class="fa fa-angle-double-right"></i>Service Price List</a></li>
           <li><a href="{$WEB_ROOT}/contact.php"><i class="fa fa-angle-double-right"></i>Request Custom Quote</a></li>
