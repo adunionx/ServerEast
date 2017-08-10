@@ -8,7 +8,7 @@ $description ='Video '.$q.' 3GP, MP4, FLV Free Download Free download video form
 }else{
 $title  = 'josge Video Search Engine';
 
-$description = 'josge Video Search Engine - find videos with HD quality.';
+$description = 'Video Search Engine - find videos with HD quality.';
 }
 include'head.php';
 echo '<div class="kotakcari">
@@ -39,7 +39,7 @@ $qu=str_replace("-","+", $qu);
 $qu=str_replace("_","+", $qu);
 if(strlen($_GET['page']) >1){$yesPage=$_GET['page'];}
 else{$yesPage='';}
-$grab=ngegrab('https://www.googleapis.com/youtube/v3/search?key=AIzaSyBbshoPpKKEUko4Pnb7vBYUYRtLi0lcwjE&part=snippet&order=relevance&maxResults=10&q='.$qu.'&pageToken='.$yesPage.'&type=video');
+$grab=ngegrab('https://www.googleapis.com/youtube/v3/search?key=AIzaSyD3V0cIcMbptu_Q_KUQRi5n0r159fnu3JI&part=snippet&order=relevance&maxResults=10&q='.$qu.'&pageToken='.$yesPage.'&type=video');
 $json = json_decode($grab);
 $nextpage=$json->nextPageToken;
 $prevpage=$json->prevPageToken;
@@ -57,7 +57,7 @@ $desc = ''.$name.' - ...';
 $chtitle = $sam->snippet->channelTitle;
 $chid = $sam->snippet->channelId;
 $date = dateyt($sam->snippet->publishedAt);
-$sam = ngegrab('https://www.googleapis.com/youtube/v3/videos?key=AIzaSyBbshoPpKKEUko4Pnb7vBYUYRtLi0lcwjE&part=contentDetails,statistics&id='.$link.'');
+$sam = ngegrab('https://www.googleapis.com/youtube/v3/videos?key=AIzaSyD3V0cIcMbptu_Q_KUQRi5n0r159fnu3JI&part=contentDetails,statistics&id='.$link.'');
 $dt=json_decode($sam);
 foreach ($dt->items as $dta){
 $time=$dta->contentDetails->duration;
